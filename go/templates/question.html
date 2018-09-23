@@ -1,0 +1,16 @@
+<!--question.html-->
+
+<!--Embed the header.html template at this location-->
+{{ template "header.html" .}}
+<!--Display the Question-->
+<h1>{{.payload.Question}}</h1>
+
+<!--Display the Answer-->
+<p>{{.payload.Answer}}</p>
+
+<p> Likes : {{.payload.Likes}} </p>
+<p> Dislikes : {{.payload.Dislikes}} </p>
+<p> Number of People who got this question right : {{.payload.Right}} </p>
+
+<!--Embed the footer.html template at this location-->
+{{ template "footer.html" .}}
