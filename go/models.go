@@ -14,4 +14,6 @@ type Question struct {
 	By      string `json:"by"`
 	Likes   int    `json:"likes"`
 	Right   uint   `json:"right"`
+	Point   int    `json:"points"`
+	Quiz    int    `json:"quiz"`
 }

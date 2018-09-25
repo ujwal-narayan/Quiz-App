@@ -17,6 +17,8 @@ func routesHandler() {
 	r.POST("/questions", CreateQuestion)
 	r.PUT("/questions/:id", UpdateQuestion)
 	r.DELETE("/questions/:id", DeleteQuestion)
+	r.POST("/login", Login_r)
+
 	r.Use((cors.Default()))
 	r.Run(":8080") // Run on port 8080
 }

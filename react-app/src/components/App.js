@@ -6,7 +6,7 @@ import DeletePerson from './DeletePerson';
 import ViewPeople from './ViewPeople';
 import EditPerson from './EditPerson';
 import NewPerson from './NewPerson';
-
+import Login_r from './Login_r';
 import Home from './Home';
 
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
@@ -43,7 +43,7 @@ class App extends Component {
                 </ul>
                 <ul className="nav navbar-nav navbar-right">
                   <li><Link to={'/'}><span className="glyphicon glyphicon-user"></span>Socail Log In</Link></li>
-                  <li><Link to={'/'}><span className="glyphicon glyphicon-log-in"></span> Log in </Link></li>
+                  <li><Link to={'/Login_r'}><span className="glyphicon glyphicon-log-in"></span> Log in </Link></li>
                   <li></li>
                 </ul>
               </div>
@@ -58,6 +58,7 @@ class App extends Component {
                  <Route exact path='/EditQuestion' component={EditPerson} />
                  <Route exact path='/DeleteQuestion' component={DeleteQuestion} />
                  <Route exact path='/ViewQuestions' component={ViewQuestions} />
+                 <Route exact path='/Login_r' component={Login_r} />
             </Switch>
           </div>
         </Router>

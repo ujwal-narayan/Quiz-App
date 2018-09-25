@@ -14,6 +14,14 @@ func DeletePerson(c *gin.Context) {
 	c.Header("access-control-allow-origin", "*")
 	c.JSON(200, gin.H{"id #" + id: "deleted"})
 }
+func DeletePersonU(c *gin.Context) {
+	id := c.Params.ByName("username")
+	var person Person
+	d := db.Where("username = ?", id).Delete(&person)
+	fmt.Println(d)
+	c.Header("access-control-allow-origin", "*")
+	c.JSON(200, person)
+}
 func UpdatePerson(c *gin.Context) {
 	var person Person
 	id := c.Params.ByName("id")

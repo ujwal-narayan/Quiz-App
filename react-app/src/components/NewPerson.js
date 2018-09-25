@@ -130,7 +130,7 @@ class NewPerson extends Component {
                 <input type="password" className="form-control" value={this.state.password} onChange={this.handlePChange}/>
             </div>
             <div className="form-group">
-                <label>Confirm Password</label>
+                <label>ConfirmPassword</label>
                 <input type="password" className="form-control" value={this.passwordre} onChange={this.handlePrChange}/>
             </div>
 
