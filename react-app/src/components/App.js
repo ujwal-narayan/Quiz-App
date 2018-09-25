@@ -24,14 +24,27 @@ class App extends Component {
                 </div>
                 <ul className="nav navbar-nav">
                   <li><Link to={'/'}>Home</Link></li>
-                  <li><Link to={'/NewPerson'}>Create Person</Link></li>
-                  <li><Link to={'/EditPerson'}>Edit Person</Link></li>
-                  <li><Link to={'/DeletePerson'}>Delete Person</Link></li>
-                  <li><Link to={'/ViewPeople'}>View People</Link></li>
-                  <li><Link to={'/NewQuestion'}>Create Question</Link></li>
-                  <li><Link to={'/EditQuestion'}>Edit Question</Link></li>
-                  <li><Link to={'/DeleteQuestion'}>Delete Question</Link></li>
-                  <li><Link to={'/ViewQuestions'}>View Questions</Link></li>
+                  <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" href="#">Person <span className="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><Link to={'/NewPerson'}>Create Person</Link></li>
+                      <li><Link to={'/EditPerson'}>Edit Person</Link></li>
+                      <li><Link to={'/DeletePerson'}>Delete Person</Link></li>
+                      <li><Link to={'/ViewPeople'}>View People</Link></li>
+                    </ul>
+                  </li>
+                  <li className="dropdown"><a className="dropdown-toggle" data-toggle="dropdown" href="#">Questions <span className="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><Link to={'/NewQuestion'}>Create Question</Link></li>
+                      <li><Link to={'/EditQuestion'}>Edit Question</Link></li>
+                      <li><Link to={'/DeleteQuestion'}>Delete Question</Link></li>
+                      <li><Link to={'/ViewQuestions'}>View Questions</Link></li>
+                    </ul>
+                  </li>
+                </ul>
+                <ul className="nav navbar-nav navbar-right">
+                  <li><Link to={'/'}><span className="glyphicon glyphicon-user"></span>Socail Log In</Link></li>
+                  <li><Link to={'/'}><span className="glyphicon glyphicon-log-in"></span> Log in </Link></li>
+                  <li></li>
                 </ul>
               </div>
             </nav>

@@ -12,6 +12,10 @@ class NewPerson extends Component {
         password: "",
 
       },
+      username_null :false,
+      password_null : false,
+      passwords_donotmatch : false,
+      passwordre : "",
       submitted: false,
       errors : false,
       
@@ -20,33 +24,69 @@ class NewPerson extends Component {
     this.handleLChange = this.handleLChange.bind(this);
     this.handleUChange = this.handleUChange.bind(this);
     this.handlePChange = this.handlePChange.bind(this);
+    this.handlePrChange = this.handlePrChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit (event) {
-    event.preventDefault();
-    fetch('http://localhost:8080/people', {
-     method: 'POST',
-     body: JSON.stringify(this.state.formData),
-   })
-      .then(response => {
-        if(response.status >= 200 && response.status < 300)
-          {
-            this.setState({errors: false});
-            this.setState({submitted: true});
-
-          }
-        else if(response.status == 300)
+    if(this.state.formData.username !=="")
+    {
+      
+      if(this.state.formData.password !=="")
+      {
+      
+        if(this.state.passwordre === this.state.formData.password)
         {
-          this.setState({errors: true});
-          this.setState({submitted: false});
-
+          
+          event.preventDefault();
+          fetch('http://localhost:8080/people', {
+           method: 'POST',
+           body: JSON.stringify(this.state.formData),
+         })
+            .then(response => {
+              if(response.status >= 200 && response.status < 300)
+                {
+                  this.setState({errors: false});
+                  this.setState({submitted: true});
+      
+                }
+              else if(response.status == 300)
+              {
+                this.setState({errors: true});
+                this.setState({submitted: false});
+      
+              }
+      
+              
+            });
+            this.setState({passwords_donotmatch:false});
         }
+        else
+      {
+        this.setState({passwords_donotmatch:true});
+      }
+      this.setState({password_null:false});
 
-        
-      });
-  }
+      }
+      else
 
+      {
+        this.setState({password_null:true});
+      }
+      
+   
+      this.setState({username_null:false});
+      }
+      else
+
+      {
+        this.setState({username_null:true});
+      }
+    
+
+    }
+
+   
   handleFChange(event) {
     this.state.formData.firstName = event.target.value;
   }
@@ -55,6 +95,9 @@ class NewPerson extends Component {
   }
   handlePChange(event) {
     this.state.formData.password = event.target.value;
+  }
+  handlePrChange(event) {
+    this.state.passwordre = event.target.value;
   }
   handleUChange(event) {
     this.state.formData.username = event.target.value;
@@ -86,11 +129,39 @@ class NewPerson extends Component {
                 <label>Password</label>
                 <input type="password" className="form-control" value={this.state.password} onChange={this.handlePChange}/>
             </div>
+            <div className="form-group">
+                <label>Confirm Password</label>
+                <input type="password" className="form-control" value={this.passwordre} onChange={this.handlePrChange}/>
+            </div>
 
                 <button type="submit" className="btn btn-default">Submit</button>
           </form>
         </div>
 
+       
+       {this.state.username_null &&
+         <div>
+         <h2>
+         {alert(" Username cannot be empty.Retry")}
+          
+         </h2>
+       </div>
+        }
+         {this.state.password_null &&
+         <div>
+         <h2>
+           {alert("Password cannot be empty. Retry")}
+         </h2>
+       </div>
+        }
+         {this.state.passwords_donotmatch &&
+         <div>
+         <h2>
+           {alert("Passwords do not match, Retry")}
+           
+         </h2>
+       </div>
+        }
         {this.state.submitted &&
           <div>
             <h2>
