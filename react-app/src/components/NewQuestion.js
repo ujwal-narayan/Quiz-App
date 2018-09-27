@@ -16,6 +16,7 @@ class NewQuestion extends Component {
         CorrectC : false,
         CorrectD : false,
         Quiz : "",
+        Points : 0
       },
       submitted: false,
       error : false
@@ -30,6 +31,7 @@ class NewQuestion extends Component {
     this.handleAnswerCCChange = this.handleAnswerCCChange.bind(this);
     this.handleAnswerDCChange = this.handleAnswerDCChange.bind(this);
     this.handleCChange = this.handleCChange.bind(this);
+    this.handlePPChange = this.handlePPChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -82,8 +84,12 @@ class NewQuestion extends Component {
     this.state.formData.CorrectD = !(this.state.formData.CorrectD);
   }
 
+  
   handleCChange(event) {
     this.state.formData.Quiz = event.target.value;
+  }
+  handlePPChange(event) {
+    this.state.formData.Points = event.target.value;
   }
  
 
@@ -144,6 +150,10 @@ class NewQuestion extends Component {
             <div className="form-group">
                 <label>Quiz ID</label>
                 <input type="number" className="form-control" value={this.state.quiz} onChange={this.handleCChange}/>
+            </div>
+            <div className="form-group">
+                <label>Points</label>
+                <input type="number" className="form-control" value={this.state.points} onChange={this.handlePPChange}/>
             </div>
                 <button type="submit" className="btn btn-default">Submit</button>
           </form>

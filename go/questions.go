@@ -16,6 +16,11 @@ func CreateQuestion(c *gin.Context) {
 		// handle the error in some way
 	}
 	question.QuizID = uint(b)
+	p, err := strconv.ParseInt(question.Points, 10, 64)
+	if err != nil {
+		// handle the error in some way
+	}
+	question.ActPoints = int(p)
 	var q Quiz
 	db.Where("id=?", question.QuizID).First(&q)
 	fmt.Println(question.QuizID)

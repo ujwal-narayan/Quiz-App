@@ -29,10 +29,7 @@ class ViewQuestions extends Component {
             <tr>
               <th>ID</th>
               <th>Questions</th>
-              <th>Answer</th>
-              <th>By</th>
-              <th>Likes</th>
-              <th>Number of people who got it right</th>
+              <th>Quiz Number </th>
             </tr>
           </thead>
           <tbody>{this.state.data.map(function(item, key) {
@@ -40,10 +37,7 @@ class ViewQuestions extends Component {
                   <tr key = {key}>
                       <td>{item.id}</td>
                       <td>{item.question}</td>
-                      <td>{item.answer}</td>
-                      <td>{item.by}</td>
-                      <td>{item.likes}</td>
-                      <td>{item.right}</td>
+                      <td>{item.quizid}</td>
                   </tr>
                 )
              })}

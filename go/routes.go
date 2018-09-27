@@ -23,7 +23,9 @@ func routesHandler() {
 	r.PUT("/quizzes/:id", UpdateQuiz)
 	r.DELETE("/quizzes/:id", DeleteQuiz)
 	r.POST("/login", Login_r)
-
+	r.GET("/quizquestions/:id", TakeQuiz)
+	r.POST("/answered", Answered)
+	r.GET("/leaderboard", Leaderboard)
 	r.Use((cors.Default()))
 	r.Run(":8080") // Run on port 8080
 }
