@@ -37,28 +37,27 @@ class DeleteQuestion extends Component {
     this.state.delete_id.id = event.target.value;
   }
   render() {
+    var login = localStorage.getItem('username');
+    if(login == "admin"){
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Delete a Person</h1>
+          <h1 className="App-title">Delete a Question</h1>
         </header>
         <form onSubmit={this.handleSubmit}>
           <table className="table-hover">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>First Name</th>
-                <th>Last Name</th>
-                <th>City</th>
+                <th>Name</th>
+                
               </tr>
             </thead>
             <tbody>{this.state.data.map((item, key) =>
                     <tr key = {key}>
                         <td ><input type="radio" value = {item.id} name = "radio"  onChange={this.handleFChange}/></td>
-                        <td>{item.id}</td>
-                        <td>{item.firstname}</td>
-                        <td>{item.lastname}</td>
-                        <td>{item.city}</td>
+                        <td>{item.question}</td>
+                        
                     </tr>
                   
               )}
@@ -69,6 +68,12 @@ class DeleteQuestion extends Component {
       </div>
     );
   }
+  else
+  {
+    return(
+      <div> <h1>Only admin can delete questions</h1></div>
+    );
+  }
 }
-
+}
 export default DeleteQuestion;

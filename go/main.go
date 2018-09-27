@@ -19,6 +19,7 @@ func main() {
 	defer db.Close()
 
 	db.AutoMigrate(&Question{})
+	db.AutoMigrate(&Quiz{})
 	db.AutoMigrate(&Person{})
 	routesHandler()
 

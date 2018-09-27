@@ -21,7 +21,7 @@ class ViewQuestions extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">View All People</h1>
+          <h1 className="App-title">View All Questions</h1>
         </header>
 
         <table className="table-hover">

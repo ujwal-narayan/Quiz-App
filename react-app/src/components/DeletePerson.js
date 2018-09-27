@@ -37,6 +37,8 @@ class DeletePerson extends Component {
     this.state.delete_id.id = event.target.value;
   }
   render() {
+   var login = localStorage.getItem('username');
+   if(login==="admin"){
     return (
       <div className="App">
         <header className="App-header">
@@ -69,6 +71,12 @@ class DeletePerson extends Component {
       </div>
     );
   }
+  else {
+    console.log("Hi");
+    return (
+      <div> <h1> Only admin can delete </h1></div>
+    );
+  }
 }
-
+}
 export default DeletePerson;

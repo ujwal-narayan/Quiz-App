@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {Redirect } from 'react-router'
+
 import './NewPerson.css';
 
 class Login_r extends Component {
@@ -40,11 +42,12 @@ class Login_r extends Component {
             .then(response => {
               if(response.status >= 200 && response.status < 300)
                 {
+                  
+                  localStorage.setItem('username',this.state.formData.username);
                   this.setState({errors: false});
                   this.setState({submitted: true});
-                  sessionStorage.setItem('username',this.state.formData.username);
+                  window.location.reload();
                   
-      
                 }
               else if(response.status == 300)
               {
@@ -95,7 +98,14 @@ class Login_r extends Component {
   }
 
   render() {
-
+    var login = localStorage.getItem('username');
+    if(login!=null && login!=undefined && login!="undefined")
+      {return(
+        <Redirect to ="/" />
+      );
+      }
+    else
+    {
     return (
       <div className="App">
         <header className="App-header">
@@ -140,6 +150,7 @@ class Login_r extends Component {
           <div>
             <h2>
              Logging you in 
+           
             </h2>
           </div>
         }
@@ -156,6 +167,7 @@ class Login_r extends Component {
       </div>
     );
   }
+}
 }
 
 export default Login_r;

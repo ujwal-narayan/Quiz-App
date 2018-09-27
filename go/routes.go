@@ -17,6 +17,11 @@ func routesHandler() {
 	r.POST("/questions", CreateQuestion)
 	r.PUT("/questions/:id", UpdateQuestion)
 	r.DELETE("/questions/:id", DeleteQuestion)
+	r.GET("/quizzes/", GetQuizzes) // Creating routes for each functionality
+	r.GET("/quizzes/:id", GetQuiz)
+	r.POST("/quizzes", CreateQuiz)
+	r.PUT("/quizzes/:id", UpdateQuiz)
+	r.DELETE("/quizzes/:id", DeleteQuiz)
 	r.POST("/login", Login_r)
 
 	r.Use((cors.Default()))
