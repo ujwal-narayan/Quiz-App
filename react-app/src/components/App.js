@@ -146,7 +146,6 @@ class App extends Component {
     {
       loginButton2 = <li><Link to={'/Login_r'}><span className="glyphicon glyphicon-log-in"></span> Log in </Link></li>
 
-      loginButton1 = <li><Link to={'/Quiz'}><span className="glyphicon glyphicon-user"></span>Social Log In</Link></li>
       
       return (
       <div>
