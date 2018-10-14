@@ -62,7 +62,7 @@ class App extends Component {
                     <ul class="dropdown-menu">
                       <li><Link to={'/NewQuiz'}>Create Quiz</Link></li>
                       <li><Link to={'/DeleteQuiz'}>Delete Quiz</Link></li>
-                      <li><Link to={'/ViewQuizzes'}>View Questions</Link></li>
+                      <li><Link to={'/ViewQuizzes'}>View Quizzes</Link></li>
                     </ul>
                   </li>
                 </ul>
